@@ -1,0 +1,11 @@
+groups:
+- name: example
+  rules:
+  # Alerta
+  - alert: AltatLatency
+    expr: (task1_processing_seconds_sum{job="MeuSite"} / task1_processing_seconds_count{job="MeuSite"}) > 10
+    for: 1m
+    labels:
+      severity: page
+    annotations:
+      summary: High request latency
